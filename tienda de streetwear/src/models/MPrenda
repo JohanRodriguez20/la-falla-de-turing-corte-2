@@ -3,8 +3,8 @@ export abstract class MPrenda {
     protected _marca: string;
     protected _costo: number;
 
-    constructor({
-        codigo,
+    constructor({    
+        codigo,  //es un codigo
         marca,
         costo
     }: {
