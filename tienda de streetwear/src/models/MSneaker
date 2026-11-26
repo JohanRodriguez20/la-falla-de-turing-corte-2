@@ -1,3 +1,5 @@
+import {MPrenda} from "./MPrenda.js";
+
 export class MSneaker extends MPrenda {
     private _altaDemanda: boolean;
 
@@ -7,7 +9,7 @@ export class MSneaker extends MPrenda {
         costo: number;
         altaDemanda: boolean;
     ) {
-        super({ codigo, marca, costo });
+        super(codigo, marca, costo );
         this._altaDemanda = altaDemanda;
     }
 
