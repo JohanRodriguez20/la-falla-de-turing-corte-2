@@ -1,0 +1,52 @@
+import {MPrenda} from "./MPrenda.js";
+
+export class MHoodie extends MPrenda {
+    private _estampado: boolean;
+    private _coleccionPasada: boolean;
+
+    constructor(
+        codigo: string;
+        marca: string;
+        costo: number;
+        estampado: boolean;
+        coleccionPasada: boolean;
+    ) {
+        super( codigo, marca, costo );
+        this._estampado = Boolean(estampado);
+        this._coleccionPasada = Boolean(coleccionPasada);
+    }
+
+    public preciofinal(): number {
+        let monto = this.precioinicial();
+
+        if (this._estampado) {
+            monto += 8;
+        }
+
+        if (this._coleccionPasada) {
+            monto -= 6;
+        }
+
+        return monto;
+    }
+
+    public gananciaNeta(): number {
+        return this.preciofinal() - this._costo;
+    }
+
+    public set estampado(valor: boolean) {
+        this._estampado = Boolean(valor);
+    }
+
+    public get estampado(): boolean {
+        return this._estampado;
+    }
+
+    public set coleccionPasada(valor: boolean) {
+        this._coleccionPasada = Boolean(valor);
+    }
+
+    public get coleccionPasada(): boolean {
+        return this._coleccionPasada;
+    }
+}
