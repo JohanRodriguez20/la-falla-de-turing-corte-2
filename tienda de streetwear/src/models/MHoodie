@@ -12,9 +12,17 @@ export class MHoodie extends MPrenda {
         coleccionPasada: boolean;
     ) {
         super( codigo, marca, costo );
-        this._estampado = Boolean(estampado);
-        this._coleccionPasada = Boolean(coleccionPasada);
+        this._estampado = estampado;
+        this._coleccionPasada = coleccionPasada;
     }
+set estampado(estampado:boolean){
+this._estampado = estampado;}
+
+get estampado(): boolean{
+return this._estampado;}
+
+
+
 
     public preciofinal(): number {
         let monto = this.precioinicial();
