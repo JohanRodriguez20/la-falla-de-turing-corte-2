@@ -12,7 +12,7 @@ constructor({
         codigo: string,
         marca: string,
         costo: number,
-        altaDemanda:boolean(altaDemanda)
+        altaDemanda:boolean
     }) {
         super({codigo, marca,costo});
         this._altaDemanda = Boolean(altaDemanda);
