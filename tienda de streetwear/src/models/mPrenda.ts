@@ -51,4 +51,3 @@ export abstract class mPrenda {
         return this.precioFinal() - this._costo;
     }
 }
-//prueba 
