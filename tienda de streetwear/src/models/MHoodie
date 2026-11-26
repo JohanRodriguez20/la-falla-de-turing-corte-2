@@ -21,10 +21,13 @@ this._estampado = estampado;}
 get estampado(): boolean{
 return this._estampado;}
 
+set coleccionPasada(coleccionPasada:boolean){ this._coleccionPasada = coleccionPasada;}
+
+get coleccionPasada(): boolean{
+return this._coleccionPasada;}
 
 
-
-    public preciofinal(): number {
+    preciofinal(): number {
         let monto = this.precioinicial();
 
         if (this._estampado) {
@@ -38,23 +41,7 @@ return this._estampado;}
         return monto;
     }
 
-    public gananciaNeta(): number {
+    gananciaNeta(): number {
         return this.preciofinal() - this._costo;
-    }
-
-    public set estampado(valor: boolean) {
-        this._estampado = Boolean(valor);
-    }
-
-    public get estampado(): boolean {
-        return this._estampado;
-    }
-
-    public set coleccionPasada(valor: boolean) {
-        this._coleccionPasada = Boolean(valor);
-    }
-
-    public get coleccionPasada(): boolean {
-        return this._coleccionPasada;
     }
 }
