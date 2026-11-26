@@ -1,34 +1,34 @@
-export abstract class MPrenda {
-    protected _codigo: number;
+export abstract class mPrenda {
+    protected _codigo: string;
     protected _marca: string;
     protected _costo: number;
 
     constructor({    
-        codigo,  //es un codigo
+        codigo,  
         marca,
         costo
     }: {
-        codigo: number,
+        codigo: string,
         marca: string,
         costo: number
     }) {
-        this._codigo = +codigo;
+        this._codigo = codigo.trim();
         this._marca = marca.trim();
         this._costo = +costo;
     }
 
-    protected precioinicial(): number {
+    protected precioInicial(): number {
         return this._costo + (this._costo * 0.3);
     }
 
-    abstract preciofinal(): number;
+    abstract precioFinal(): number;
 
 
-    set codigo(codigo: number) {
-        this._codigo = +codigo;
+    set codigo(codigo: string) {
+        this._codigo = codigo;
     } 
 
-    get codigo(): number {
+    get codigo(): string {
         return this._codigo;
     }
 
@@ -45,5 +45,9 @@ export abstract class MPrenda {
 
     get costo(): number {
         return this._costo;
+    }
+
+    gananciaNeta(){
+        return this.precioFinal() - this._costo;
     }
 }
