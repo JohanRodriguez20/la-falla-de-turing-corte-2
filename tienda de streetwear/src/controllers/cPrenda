@@ -1,0 +1,44 @@
+import { iPrenda } from "./iPrenda.js";
+import { mPrenda } from "./mPrenda.js";
+import { mHoodie } from "./mHoodie.js";
+import { mSneaker } from "./mSneaker.js";
+
+export default class cPrenda {
+    private vista: iPrenda;
+    private callback!: (Prenda: mPrenda | null) => void;
+
+    constructor(vista: iPrenda){
+        this.vista = vista;
+        this.vista.onCancelar(() => this.btCancelarOnClick ())
+        this.vista.onAceptar(() => this.btAceptarOnClick())
+    }
+    
+    solicitarPrenda(callback: (Prenda: mPrenda | null) => void): void {
+        this.callback = callback;
+        this.vista.mostrar();
+    }
+    
+    private btCancelarOnClick(): void {
+        this.vista.ocultar();
+        this.callback(null);
+    }
+
+    private btAceptarOnClick(): void {
+        const tipo = {
+            codigo: this.vista.codigo,
+            marca: this.vista.marca,
+            costo: this.vista.costo,
+        }
+
+    let prenda: mPrenda;
+
+         if (this.vista.tipoSneaker){
+            prenda = new mSneaker({...tipo , altaDemanda: this.vista.altaDemanda});
+        } else {
+        prenda = new mHoodie({...tipo , estampado: this.vista.estampado, coleccionPasada: this.vista.coleccionPasada});
+        }
+    }
+
+
+
+}
