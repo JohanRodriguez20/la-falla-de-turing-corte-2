@@ -1,0 +1,35 @@
+export class MSneaker extends MPrenda {
+    private _altaDemanda: boolean;
+
+    constructor(
+        codigo: string;
+        marca: string;
+        costo: number;
+        altaDemanda: boolean;
+    ) {
+        super({ codigo, marca, costo });
+        this._altaDemanda = altaDemanda;
+    }
+
+set altaDemanda(altaDemanda: boolean){
+this._altaDemanda = altaDemanda;
+}
+
+get altaDemanda(): boolean {
+return this._altaDemanda;
+}
+
+    preciofinal(): number {
+        const subtotalImportacion = this.precioinicial() + 15;
+
+        if (this._altaDemanda) {
+            return subtotalImportacion * 1.1;
+        }
+
+        return subtotalImportacion;
+    }
+
+    gananciaNeta(): number {
+        return this.preciofinal() - this._costo;
+    }
+}
