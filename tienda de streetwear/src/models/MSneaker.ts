@@ -33,6 +33,6 @@ constructor({
         }
     }
         public gananciaNeta(): number {
-        return this.precioFinal() - this._costo;
+        return this.precioFinal() - this._costo; 
     }
 }
