@@ -22,4 +22,5 @@ export default class mStore {
     mayorCodigo(){
         return this.auxMayCodigo;
     }
+
 }

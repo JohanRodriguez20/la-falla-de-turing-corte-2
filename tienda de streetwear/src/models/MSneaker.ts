@@ -18,11 +18,11 @@ constructor({
         this._altaDemanda = Boolean(altaDemanda);
     }
     set altaDemanda(altaDemanda: boolean){
-        this.altaDemanda = altaDemanda;
+        this._altaDemanda = altaDemanda;
     }
 
     get altaDemanda(): boolean{
-        return this.altaDemanda;
+        return this._altaDemanda;
     }
     override precioFinal(): number{
         const  subTotal = this.precioInicial()

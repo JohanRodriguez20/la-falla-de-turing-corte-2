@@ -15,7 +15,7 @@ export default class cPrenda {
     
     solicitarPrenda(callback: (Prenda: mPrenda | null) => void): void {
         this.callback = callback;
-        this.vista.mostrar();
+        this.vista.mostrar(); 
     }
     
     private btCancelarOnClick(): void {
